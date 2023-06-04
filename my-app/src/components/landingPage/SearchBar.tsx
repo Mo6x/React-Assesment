@@ -4,10 +4,7 @@ import Menu from "../landingPage/image/icon/menu.svg";
 import DatasCall from './DatasCall';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-
-
-
-
+import InsideSeachBar from './InsideSeachBar';
 
  const SearchBar = (props:any) => {
   
@@ -41,100 +38,25 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
     //   setQuantity(0);
     alert(1)
     };
-
-
-
+    const [change,setChange] = useState(Boolean)
+    const [changeVal,setchangeVal] = useState(Boolean)
+let x=0
+const handleCloseOpen = ()=>{
+    x++
+    if(x==1)
+        setChange(true)
+if(x==2){
+    setChange(false)
+    x=0
+}
+}
 
     
     return (   
 
         <>
-           
-        <DatasCall items={[]} />
-        <div className='Items'>
-          <div className='headNode'>
-          <img src={Menu} alt='' />  
-          <h3>Set Parameters</h3>
-           <button>Reset all</button>
-           
-          </div>
-          <p style={{paddingLeft:"30px"}}> 9 parameters available</p>
-            <div className='form'>
-            <div className='form-div-row'>
-                <h3>From (node) </h3>
-                    <FontAwesomeIcon icon={faChevronUp} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <input />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Recieving (node) </h3>
-                    <FontAwesomeIcon icon={faChevronUp} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <input />
-                </div>
-                <hr />
-                <div className='form-div-row'>
-                <h3> Item </h3>
-                    <FontAwesomeIcon icon={faChevronUp} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <input />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Warehouse order </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-                <div className='form-div-row'>
-                <h3>Type </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Category </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Status </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Created on </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-
-                <div className='form-div-row'>
-                <h3>Pick date </h3>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
-                <hr />
-
-                <div className='form-div-row' style={{background:"#f8f8f8",border:"0px"}}>
-                <button className='but cancel'>Cancel</button>
-                <button className='but aply' >Apply</button>
-                </div>
-                <hr />
-            </div>
-       
-        </div>
+        <DatasCall items={[]} menu={Menu} />
+        {(change) ? "" :    <InsideSeachBar menu={Menu} handleCloseOpen={handleCloseOpen}/>}
         </>
 
       );

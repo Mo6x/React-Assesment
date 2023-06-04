@@ -41,7 +41,7 @@ function Sidebar() {
                         )
                     })}
 
-<div className='item-search ' style={{marginTop:"300px"}}>
+<div className='item-search ' style={{marginTop:"200px"}}>
                            
                     <FontAwesomeIcon icon={faChevronCircleLeft} className='iconsidebar' />
                             Item search
